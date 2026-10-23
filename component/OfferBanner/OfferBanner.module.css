@@ -1,0 +1,52 @@
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #32070d;
+  color: #faf8f3;
+  padding: 12px 45px;
+  min-height: 44px;
+  text-align: center;
+}
+
+.message {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.closeButton {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #faf8f3;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.closeButton:hover {
+  color: #d9b66f;
+}
+
+@media (max-width: 600px) {
+  .banner {
+    padding: 12px 38px 12px 12px;
+  }
+
+  .message {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .closeButton {
+    right: 6px;
+  }
+}

@@ -1,12 +1,14 @@
 
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/component/Navbar/Navbar";
 import Footer from "@/component/Footer/footer";
 import styles from "./shop.module.css";
 import { useCart } from "@/context/CartContext";
+
 type Product = {
   id: number;
   name: string;
@@ -19,6 +21,7 @@ type Product = {
 
 const categories = [
   "All Products",
+  "Jewellery",
   "Temple Jewellery",
   "Biye Totto",
   "Dance Jewellery",
@@ -34,6 +37,16 @@ const categories = [
   "Makeup Brushes",
   "Knitting Tools",
   "Wool & Yarn",
+];
+
+// All categories included when customers select Jewellery.
+const jewelleryCategories = [
+  "Temple Jewellery",
+  "Dance Jewellery",
+  "Oxidized Jewellery",
+  "Bangles",
+  "Bracelets",
+  "Churis",
 ];
 
 const products: Product[] = [
@@ -173,15 +186,44 @@ const products: Product[] = [
 
 export default function ShopPage() {
   const { addItem } = useCart();
-  const [activeCategory, setActiveCategory] = useState("All Products");
+  const searchParams = useSearchParams();
+  const requestedCategory = searchParams.get("category");
+
+  const [activeCategory, setActiveCategory] =
+    useState("All Products");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("featured");
   const [inStockOnly, setInStockOnly] = useState(false);
 
+  // Select the category passed through the URL.
+  useEffect(() => {
+    if (!requestedCategory) {
+      setActiveCategory("All Products");
+      return;
+    }
+
+    const categoryAliases: Record<string, string> = {
+      "Bengali Biye Totto": "Biye Totto",
+      "Wool & Craft": "Wool & Yarn",
+    };
+
+    const selectedCategory =
+      categoryAliases[requestedCategory] ?? requestedCategory;
+
+    if (categories.includes(selectedCategory)) {
+      setActiveCategory(selectedCategory);
+    } else {
+      setActiveCategory("All Products");
+    }
+  }, [requestedCategory]);
+
+  // Filter, search and sort products.
   const filteredProducts = useMemo(() => {
     let result = products.filter((product) => {
       const matchesCategory =
         activeCategory === "All Products" ||
+        (activeCategory === "Jewellery" &&
+          jewelleryCategories.includes(product.category)) ||
         product.category === activeCategory;
 
       const matchesSearch =
@@ -198,7 +240,9 @@ export default function ShopPage() {
     } else if (sort === "price-high") {
       result = [...result].sort((a, b) => b.price - a.price);
     } else if (sort === "name") {
-      result = [...result].sort((a, b) => a.name.localeCompare(b.name));
+      result = [...result].sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
     }
 
     return result;
@@ -210,18 +254,29 @@ export default function ShopPage() {
 
       <main className={styles.shopPage}>
         <section className={styles.shopIntro}>
-          <p className={styles.eyebrow}>MITRA STORES / OUR COLLECTION</p>
-          <h1>Shop All</h1>
+          <p className={styles.eyebrow}>
+            MITRA STORES / OUR COLLECTION
+          </p>
+
+          <h1>
+            {activeCategory === "All Products"
+              ? "Shop All"
+              : activeCategory}
+          </h1>
+
           <p className={styles.introText}>
             Discover traditional treasures, everyday essentials and
             creative finds, thoughtfully collected for you.
           </p>
+
           <div className={styles.goldLine} />
         </section>
 
         <section className={styles.shopContent}>
           <div className={styles.categorySection}>
-            <p className={styles.sectionLabel}>EXPLORE OUR COLLECTION</p>
+            <p className={styles.sectionLabel}>
+              EXPLORE OUR COLLECTION
+            </p>
 
             <div className={styles.categoryList}>
               {categories.map((category) => (
@@ -229,7 +284,9 @@ export default function ShopPage() {
                   key={category}
                   type="button"
                   className={`${styles.categoryButton} ${
-                    activeCategory === category ? styles.activeCategory : ""
+                    activeCategory === category
+                      ? styles.activeCategory
+                      : ""
                   }`}
                   onClick={() => setActiveCategory(category)}
                 >
@@ -250,6 +307,7 @@ export default function ShopPage() {
             <div className={styles.toolbarControls}>
               <label className={styles.searchBox}>
                 <span className={styles.searchIcon}>⌕</span>
+
                 <input
                   type="search"
                   placeholder="Search products..."
@@ -263,21 +321,28 @@ export default function ShopPage() {
                 <input
                   type="checkbox"
                   checked={inStockOnly}
-                  onChange={(event) => setInStockOnly(event.target.checked)}
+                  onChange={(event) =>
+                    setInStockOnly(event.target.checked)
+                  }
                 />
                 In stock
               </label>
 
               <label className={styles.sortControl}>
                 <span>Sort:</span>
+
                 <select
                   value={sort}
                   onChange={(event) => setSort(event.target.value)}
                   aria-label="Sort products"
                 >
                   <option value="featured">Featured</option>
-                  <option value="price-low">Price: Low to High</option>
-                  <option value="price-high">Price: High to Low</option>
+                  <option value="price-low">
+                    Price: Low to High
+                  </option>
+                  <option value="price-high">
+                    Price: High to Low
+                  </option>
                   <option value="name">Name: A–Z</option>
                 </select>
               </label>
@@ -289,13 +354,17 @@ export default function ShopPage() {
               {filteredProducts.map((product) => {
                 const discount = product.oldPrice
                   ? Math.round(
-                      ((product.oldPrice - product.price) / product.oldPrice) *
+                      ((product.oldPrice - product.price) /
+                        product.oldPrice) *
                         100
                     )
                   : 0;
 
                 return (
-                  <article className={styles.productCard} key={product.id}>
+                  <article
+                    className={styles.productCard}
+                    key={product.id}
+                  >
                     <Link
                       href={`/product/${product.id}`}
                       className={styles.productImageLink}
@@ -338,6 +407,7 @@ export default function ShopPage() {
                         <span className={styles.currentPrice}>
                           ₹{product.price.toLocaleString("en-IN")}
                         </span>
+
                         {product.oldPrice && (
                           <span className={styles.oldPrice}>
                             ₹{product.oldPrice.toLocaleString("en-IN")}
@@ -347,10 +417,11 @@ export default function ShopPage() {
 
                       <div className={styles.productActions}>
                         <Link
-                            href={`/product/${product.id}`}
-                            className={styles.viewProduct}
-                          >
-                              View product <span aria-hidden="true">↗</span>
+                          href={`/product/${product.id}`}
+                          className={styles.viewProduct}
+                        >
+                          View product{" "}
+                          <span aria-hidden="true">↗</span>
                         </Link>
 
                         <button
@@ -378,7 +449,10 @@ export default function ShopPage() {
             <div className={styles.emptyState}>
               <span className={styles.emptyIcon}>⌕</span>
               <h2>No products found</h2>
-              <p>Try another search or choose a different category.</p>
+              <p>
+                Try another search or choose a different category.
+              </p>
+
               <button
                 type="button"
                 onClick={() => {

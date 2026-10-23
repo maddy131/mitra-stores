@@ -1,0 +1,429 @@
+
+.page {
+  min-height: 70vh;
+  padding: 24px 5% 76px;
+  background: #faf8f3;
+  color: #292725;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 32px;
+  color: #77716a;
+  font-size: 12px;
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #32070d;
+  text-decoration: none;
+}
+
+.productLayout {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.gallery {
+  position: sticky;
+  top: 24px;
+}
+
+.mainImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.5;
+  overflow: hidden;
+  background: #f0e9df;
+}
+
+.mainImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageTag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 9px 12px;
+  background: #faf8f3;
+  color: #32070d;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+}
+
+.imageCaption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #6b6762;
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.details {
+  min-width: 0;
+}
+
+.eyebrow {
+  color: #b8862f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.details h1 {
+  color: #32070d;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(30px, 3.5vw, 43px);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.price {
+  color: #32070d;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.description {
+  color: #6b6762;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: #e5ddd2;
+  margin: 24px 0;
+}
+
+.details h2 {
+  color: #32070d;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0 0 16px;
+}
+
+.contents {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 13px;
+}
+
+.contents li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #514b45;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.contents li svg {
+  flex-shrink: 0;
+  color: #b8862f;
+  margin-top: 2px;
+}
+
+.note {
+  color: #847b70;
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 16px 0 0;
+}
+
+.sizeOptions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sizeButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 12px;
+  border: 1px solid #ddd4c7;
+  background: #fff;
+  color: #514b45;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sizeButton span {
+  font-size: 12px;
+}
+
+.sizeButton strong {
+  font-size: 15px;
+}
+
+.selectedSize {
+  border: 1.5px solid #32070d;
+  background: #f5eee5;
+  color: #32070d;
+}
+
+.letterIntro {
+  color: #6b6762;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: -5px 0 16px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  accent-color: #32070d;
+  width: 16px;
+  height: 16px;
+}
+
+.letterFields {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 18px;
+  background: #f2ece3;
+}
+
+.letterFields label {
+  display: grid;
+  gap: 8px;
+  color: #514b45;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.letterFields input,
+.letterFields textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd4c7;
+  border-radius: 0;
+  background: #fff;
+  color: #292725;
+  padding: 12px;
+  font: inherit;
+  font-size: 13px;
+  outline-color: #b8862f;
+}
+
+.letterFields textarea {
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.characterCount {
+  color: #847b70;
+  font-size: 10px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.quantityRow,
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.quantityRow {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 5px 8px;
+  border: 1px solid #ddd4c7;
+  background: #fff;
+}
+
+.quantityControl button {
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: #32070d;
+  cursor: pointer;
+}
+
+.quantityControl button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.quantityControl span {
+  min-width: 14px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.totalRow {
+  border-top: 1px solid #e5ddd2;
+  padding-top: 17px;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.totalRow strong {
+  color: #32070d;
+  font-size: 21px;
+}
+
+.addButton,
+.customizeButton {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addButton {
+  background: #32070d;
+  color: #fff;
+  border: 1px solid #32070d;
+}
+
+.addButton:hover {
+  background: #52131d;
+}
+
+.customizeButton {
+  margin-top: 12px;
+  background: transparent;
+  color: #32070d;
+  border: 1px solid #b8862f;
+}
+
+.customizeButton:hover {
+  background: #f0e9df;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 13px;
+  background: #edf3e8;
+  color: #31572c;
+  font-size: 12px;
+}
+
+.successMessage button {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: #31572c;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.deliveryNote {
+  text-align: center;
+  color: #847b70;
+  font-size: 11px;
+  margin: 18px 0 0;
+}
+
+.notFound {
+  min-height: 45vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  background: #faf8f3;
+  color: #32070d;
+}
+
+.notFound h1 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.notFound a {
+  color: #32070d;
+}
+
+@media (max-width: 850px) {
+  .productLayout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .gallery {
+    position: static;
+  }
+
+  .mainImage {
+    max-height: 600px;
+  }
+}
+
+@media (max-width: 500px) {
+  .page {
+    padding: 18px 16px 48px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 22px;
+  }
+
+  .details h1 {
+    font-size: 32px;
+  }
+
+  .sizeButton {
+    padding: 12px 8px;
+  }
+
+  .sizeButton strong {
+    font-size: 13px;
+  }
+}

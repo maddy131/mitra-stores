@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Package,
+  Gift,
   Boxes,
   ShoppingCart,
   ReceiptText,
@@ -28,6 +29,11 @@ const navigation = [
     label: "Products",
     href: "/admin/products",
     icon: Package,
+  },
+  {
+    label: "Kits",
+    href: "/admin/kits",
+    icon: Gift,
   },
   {
     label: "Inventory",
@@ -54,7 +60,7 @@ export default function AdminLayout({
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Preserve the existing login page without admin navigation.
+  // Keep the login page free from the admin sidebar.
   if (pathname === "/admin/login" || pathname.startsWith("/admin/login/")) {
     return <>{children}</>;
   }
@@ -96,6 +102,7 @@ export default function AdminLayout({
         <nav className={styles.navigation} aria-label="Admin navigation">
           {navigation.map((item) => {
             const Icon = item.icon;
+
             const active =
               pathname === item.href ||
               (item.href !== "/admin/dashboard" &&
