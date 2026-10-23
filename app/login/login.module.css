@@ -1,0 +1,325 @@
+
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #faf8f3;
+  color: #292725;
+}
+
+.visualPanel {
+  position: relative;
+  min-height: 680px;
+  background-color: #220408;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(20, 2, 5, 0.92) 0%,
+      rgba(20, 2, 5, 0.28) 55%,
+      rgba(20, 2, 5, 0.12) 100%
+    ),
+    url("/images/categories/temple-jewellery.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  padding: 48px;
+}
+
+.visualOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(34, 4, 8, 0.28)
+  );
+  pointer-events: none;
+}
+
+.brandContent {
+  position: relative;
+  z-index: 1;
+  max-width: 440px;
+  color: #fff;
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #e5b54d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 40px);
+  text-decoration: none;
+}
+
+.brandContent p {
+  margin: 0;
+  max-width: 390px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.formPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 48px;
+}
+
+.loginFormContainer {
+  width: 100%;
+  max-width: 448px;
+}
+
+.mobileBrand {
+  display: none;
+  color: #8e1b2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #b8862f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.loginFormContainer h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4vw, 44px);
+  font-weight: 400;
+  letter-spacing: -1.5px;
+}
+
+.subtitle {
+  margin: 8px 0 34px;
+  color: #6b6762;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.field input {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 0 13px;
+  border: 1px solid #ddd4c7;
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  color: #292725;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+  border-color: #8e1b2d;
+  box-shadow: 0 0 0 3px rgba(142, 27, 45, 0.09);
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper input {
+  padding-right: 60px;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: #8e1b2d;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.formOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: -2px;
+}
+
+.rememberLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b6762;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.rememberLabel input {
+  accent-color: #8e1b2d;
+}
+
+.textButton {
+  border: none;
+  background: transparent;
+  color: #8e1b2d;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 2px;
+  border: 1px solid #8e1b2d;
+  border-radius: 7px;
+  background: #8e1b2d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.submitButton:hover {
+  background: #6f1221;
+}
+
+.submitButton:active {
+  transform: scale(0.99);
+}
+
+.message {
+  margin: 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: #f1e8df;
+  color: #6f1221;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.registerPrompt {
+  margin: 26px 0 0;
+  color: #6b6762;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.registerPrompt a {
+  color: #8e1b2d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.registerPrompt a:hover {
+  text-decoration: underline;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 28px;
+  color: #6b6762;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: #8e1b2d;
+}
+
+@media (max-width: 900px) {
+  .loginPage {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .visualPanel {
+    padding: 32px;
+  }
+
+  .formPanel {
+    padding: 48px 30px;
+  }
+}
+
+@media (max-width: 650px) {
+  .loginPage {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+
+  .visualPanel {
+    min-height: 230px;
+    padding: 28px 24px;
+    background-position: center 40%;
+  }
+
+  .brand {
+    font-size: 30px;
+  }
+
+  .brandContent p {
+    font-size: 13px;
+    max-width: 340px;
+  }
+
+  .formPanel {
+    align-items: flex-start;
+    padding: 38px 24px 48px;
+  }
+
+  .loginFormContainer {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .loginFormContainer h1 {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 380px) {
+  .visualPanel {
+    min-height: 200px;
+    padding: 22px 18px;
+  }
+
+  .formPanel {
+    padding: 30px 18px 38px;
+  }
+
+  .formOptions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

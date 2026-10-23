@@ -1,0 +1,191 @@
+
+.footer {
+  width: 100%;
+  background-color: #220408;
+  color: #faf8f3;
+  margin-top: 0;
+}
+
+.footerContent {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 6.7%;
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr 0.9fr;
+  column-gap: 10%;
+  align-items: start;
+}
+
+.brandSection {
+  max-width: 390px;
+}
+
+.brandTitle {
+  margin: 0 0 14px;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #e8dfda;
+}
+
+.storeHours {
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e8dfda;
+}
+
+.linkSection {
+  min-width: 0;
+}
+
+.sectionTitle {
+  margin: 0 0 16px;
+  color: #b8862f;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linkList a {
+  color: #e8dfda;
+  font-size: 14px;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.linkList a:hover {
+  color: #d9a441;
+}
+
+.footerBottom {
+  min-height: 58px;
+  padding: 18px 20px;
+  border-top: 1px solid rgba(250, 248, 243, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 12px;
+}
+
+.footerBottom p {
+  margin: 0;
+}
+
+.footerBottom a {
+  color: #e8dfda;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerBottom a:hover {
+  color: #d9a441;
+}
+.adminLoginButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: 1px solid #b8862f;
+  border-radius: 6px;
+  color: #faf8f3;
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.adminLoginButton:hover {
+  background-color: #b8862f;
+  color: #220408;
+}
+
+.adminLoginButton:focus-visible {
+  outline: 2px solid #faf8f3;
+  outline-offset: 3px;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .footerContent {
+    padding: 48px 5%;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    column-gap: 5%;
+  }
+
+  .brandTitle {
+    font-size: 26px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  .footerContent {
+    padding: 40px 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+  }
+
+  .brandSection {
+    grid-column: 1 / -1;
+    max-width: 420px;
+  }
+
+  .brandTitle {
+    font-size: 26px;
+  }
+
+  .description,
+  .storeHours,
+  .linkList a {
+    font-size: 13px;
+  }
+
+  .sectionTitle {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .linkList {
+    gap: 11px;
+  }
+
+  .footerBottom {
+    gap: 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footerContent {
+    padding-right: 16px;
+    padding-left: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  .brandSection {
+    grid-column: auto;
+  }
+}

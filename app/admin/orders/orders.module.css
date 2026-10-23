@@ -1,0 +1,339 @@
+
+.adminLayout {
+  --maroon: #32070d;
+  --gold: #b8862f;
+  --cream: #f5f5eb;
+  --text: #292725;
+  --muted: #817a70;
+  --border: #e7e2d9;
+
+  display: flex;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar {
+  width: 248px;
+  flex-shrink: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1e1114;
+  color: #eee6dc;
+  border-right: 1px solid #3c292b;
+}
+
+.brand {
+  height: 72px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid #3c292b;
+  text-decoration: none;
+}
+
+.brand span {
+  color: #d4b46e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.brand small {
+  color: #c9beb8;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 22px 12px;
+}
+
+.navLink {
+  min-height: 43px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 5px;
+  color: #c8bdb9;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navLink:hover,
+.active {
+  background: #302124;
+  color: #d6b15e;
+}
+
+.sidebarBottom {
+  margin-top: auto;
+  padding: 15px 12px;
+  border-top: 1px solid #3c292b;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+}
+
+.pageHeader {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #988a78;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 500;
+}
+
+.subtitle {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+
+.filterButton {
+  padding: 9px 12px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #72695f;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filterButton:hover {
+  background: #ebe6dc;
+}
+
+.selectedFilter {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--maroon);
+}
+
+.tablePanel {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(43 24 15 / 2%);
+}
+
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.ordersTable th {
+  padding: 15px 12px;
+  color: #4e4942;
+  background: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.ordersTable td {
+  padding: 13px 12px;
+  border-bottom: 1px solid #eee9e1;
+  vertical-align: middle;
+}
+
+.ordersTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ordersTable tbody tr:hover {
+  background: #fcfbf8;
+}
+
+.orderId,
+.customerName {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.secondaryText {
+  display: block;
+  margin-top: 4px;
+  color: #8d847a;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.typeLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #5e574e;
+  white-space: nowrap;
+}
+
+.typeLabel svg {
+  color: var(--gold);
+}
+
+.total {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.paymentBadge,
+.statusSelect {
+  max-width: 195px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.paymentBadge:focus,
+.statusSelect:focus,
+.filterButton:focus-visible {
+  outline: 2px solid #b8862f;
+  outline-offset: 2px;
+}
+
+.paid {
+  background: #e2f6eb;
+  color: #277756;
+}
+
+.pending {
+  background: #fff1c7;
+  color: #87641e;
+}
+
+.refunded {
+  background: #f0e7f5;
+  color: #79518b;
+}
+
+.completed {
+  background: #d8f4e7;
+  color: #286c53;
+}
+
+.cancelled {
+  background: #fbe5e3;
+  color: #a33c36;
+}
+
+.statusSelect {
+  width: 100%;
+  min-width: 155px;
+}
+
+.emptyState {
+  padding: 35px !important;
+  color: #8d847a;
+  text-align: center;
+}
+
+.tableFooter {
+  padding: 13px 15px;
+  border-top: 1px solid var(--border);
+  color: #8d847a;
+  font-size: 11px;
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 215px;
+  }
+
+  .main {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .adminLayout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .brand {
+    height: 60px;
+  }
+
+  .navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    padding: 10px;
+  }
+
+  .navLink {
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  .sidebarBottom {
+    display: flex;
+    gap: 8px;
+    margin-top: 0;
+    padding: 8px 10px;
+  }
+
+  .main {
+    padding: 22px 12px;
+  }
+
+  .filterBar {
+    gap: 3px;
+  }
+
+  .filterButton {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  .ordersTable {
+    min-width: 850px;
+  }
+}

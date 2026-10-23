@@ -1,0 +1,410 @@
+
+.adminLayout {
+  --maroon: #32070d;
+  --gold: #b8862f;
+  --cream: #f5f5eb;
+  --text: #292725;
+  --muted: #817a70;
+  --border: #e7e2d9;
+
+  display: flex;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar {
+  width: 248px;
+  flex-shrink: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1e1114;
+  color: #eee6dc;
+  border-right: 1px solid #3c292b;
+}
+
+.brand {
+  height: 72px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border-bottom: 1px solid #3c292b;
+  text-decoration: none;
+}
+
+.brand span {
+  color: #d4b46e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.brand small {
+  color: #c9beb8;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 22px 12px;
+}
+
+.navLink {
+  min-height: 43px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 5px;
+  color: #c8bdb9;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.navLink:hover,
+.active {
+  background: #302124;
+  color: #d6b15e;
+}
+
+.sidebarBottom {
+  margin-top: auto;
+  padding: 15px 12px;
+  border-top: 1px solid #3c292b;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px;
+}
+
+.pageHeader {
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  margin: 0 0 7px;
+  color: #988a78;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 500;
+}
+
+.subtitle {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 25px;
+}
+
+.summaryCard {
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  box-shadow: 0 2px 5px rgb(43 24 15 / 2%);
+}
+
+.summaryTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #6f665d;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.summaryTop svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.summaryCard h2 {
+  margin: 19px 0 7px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.summaryCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.tablePanel {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgb(43 24 15 / 2%);
+}
+
+.tableHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 22px 20px 15px;
+}
+
+.tableHeading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.tableHeading p {
+  margin: 5px 0 0;
+  color: #968d82;
+  font-size: 11px;
+}
+
+.searchInput {
+  width: min(100%, 260px);
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.searchInput:focus {
+  outline: 2px solid #b8862f;
+  outline-offset: 1px;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0 15px 15px;
+}
+
+.filterButton {
+  padding: 9px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #72695f;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.filterButton:hover {
+  background: #ebe6dc;
+}
+
+.selectedFilter {
+  background: #f7f3eb;
+  border-color: var(--border);
+  color: var(--maroon);
+}
+
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.transactionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.transactionsTable th {
+  padding: 15px 13px;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: #4e4942;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.transactionsTable td {
+  padding: 15px 13px;
+  border-bottom: 1px solid #eee9e1;
+  vertical-align: middle;
+}
+
+.transactionsTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.transactionsTable tbody tr:hover {
+  background: #fcfbf8;
+}
+
+.orderId {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.dateCell {
+  color: #82786d;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.method {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #655b50;
+  white-space: nowrap;
+}
+
+.method svg {
+  color: var(--gold);
+}
+
+.amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.statusSelect {
+  min-width: 105px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.paid {
+  background: #e2f6eb;
+  color: #277756;
+}
+
+.pending {
+  background: #fff1c7;
+  color: #87641e;
+}
+
+.refunded {
+  background: #f0e7f5;
+  color: #79518b;
+}
+
+.statusSelect:focus,
+.filterButton:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.emptyState {
+  padding: 35px !important;
+  color: #8d847a;
+  text-align: center;
+}
+
+.tableFooter {
+  padding: 13px 15px;
+  border-top: 1px solid var(--border);
+  color: #8d847a;
+  font-size: 11px;
+}
+
+@media (max-width: 1000px) {
+  .sidebar {
+    width: 215px;
+  }
+
+  .main {
+    padding: 24px 18px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .adminLayout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .brand {
+    height: 60px;
+  }
+
+  .navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+    padding: 10px;
+  }
+
+  .navLink {
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  .sidebarBottom {
+    display: flex;
+    gap: 8px;
+    margin-top: 0;
+    padding: 8px 10px;
+  }
+
+  .main {
+    padding: 22px 12px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .summaryCard {
+    padding: 17px;
+  }
+
+  .tableHeading {
+    padding: 17px 12px 12px;
+  }
+
+  .filterBar {
+    padding: 0 10px 12px;
+  }
+
+  .transactionsTable {
+    min-width: 760px;
+  }
+}

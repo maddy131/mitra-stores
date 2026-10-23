@@ -1,0 +1,505 @@
+
+.accountPage {
+  min-height: 70vh;
+  padding: 48px 24px 80px;
+  background: #faf8f3;
+  color: #292725;
+}
+
+.accountContainer {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.pageHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #b8862f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.pageHeading h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4vw, 46px);
+  font-weight: 400;
+  letter-spacing: -1.2px;
+}
+
+.pageSubtitle {
+  margin: 9px 0 0;
+  color: #6b6762;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.signOutButton {
+  padding: 10px 17px;
+  border: 1px solid #ddd4c7;
+  border-radius: 7px;
+  background: transparent;
+  color: #8e1b2d;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signOutButton:hover {
+  border-color: #8e1b2d;
+  background: #f5ece8;
+}
+
+.accountLayout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: start;
+  gap: 26px;
+}
+
+.sidebar {
+  overflow: hidden;
+  border: 1px solid #e8ded1;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.profileCard {
+  padding: 25px 18px;
+  border-bottom: 1px solid #eee4d8;
+  text-align: center;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 13px;
+  border-radius: 50%;
+  background: #f1e5d3;
+  color: #8e1b2d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+}
+
+.profileCard h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profileCard p {
+  margin: 7px 0 0;
+  color: #6b6762;
+  font-size: 12px;
+}
+
+.accountNav {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 4px;
+}
+
+.accountNav button {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #6b6762;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accountNav button span {
+  width: 18px;
+  color: #8e1b2d;
+  font-size: 18px;
+  text-align: center;
+}
+
+.accountNav button:hover,
+.accountNav button.activeNav {
+  background: #f7efeb;
+  color: #8e1b2d;
+}
+
+.mainPanel {
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid #e8ded1;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.panelHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.panelHeading h2,
+.detailsPanel > h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.panelHeading p {
+  margin: 7px 0 0;
+  color: #6b6762;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.orderCount {
+  padding: 7px 10px;
+  border-radius: 20px;
+  background: #f6eee4;
+  color: #79541e;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.orderCard {
+  padding: 19px;
+  border: 1px solid #e8ded1;
+  border-radius: 10px;
+}
+
+.orderTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee4d8;
+}
+
+.orderLabel {
+  margin: 0 0 5px;
+  color: #8b847b;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.orderTop strong {
+  font-size: 13px;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.delivered {
+  background: #e8f3e8;
+  color: #376a3c;
+}
+
+.processing {
+  background: #fff1d9;
+  color: #8a5b14;
+}
+
+.orderProduct {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 0;
+}
+
+.orderProduct img {
+  width: 76px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
+.orderProductInfo h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.orderProductInfo p {
+  margin: 0 0 8px;
+  color: #6b6762;
+  font-size: 12px;
+}
+
+.orderProductInfo strong {
+  font-size: 14px;
+}
+
+.orderBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #eee4d8;
+}
+
+.orderBottom > span {
+  color: #6b6762;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.orderBottom button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #8e1b2d;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.shopButton,
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 11px 17px;
+  border: 1px solid #8e1b2d;
+  border-radius: 7px;
+  background: #8e1b2d;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.shopButton {
+  margin-top: 22px;
+}
+
+.shopButton:hover,
+.primaryButton:hover {
+  background: #6f1221;
+}
+
+.detailsDescription {
+  margin: 10px 0 25px;
+  color: #6b6762;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.detailRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee4d8;
+  font-size: 13px;
+}
+
+.detailRow span {
+  color: #6b6762;
+}
+
+.detailRow strong {
+  text-align: right;
+  font-weight: 500;
+}
+
+.emptyAddress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 18px;
+  border: 1px dashed #ddd4c7;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.emptyAddress > span {
+  color: #8e1b2d;
+  font-size: 30px;
+}
+
+.emptyAddress h3 {
+  margin: 12px 0 6px;
+  font-size: 15px;
+}
+
+.emptyAddress p {
+  margin: 0;
+  color: #6b6762;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.signedOutPage {
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  background: #faf8f3;
+}
+
+.signedOutCard {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px 28px;
+  border: 1px solid #e8ded1;
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+}
+
+.successIcon {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f3e8;
+  color: #376a3c;
+  font-size: 25px;
+}
+
+.signedOutCard h1 {
+  margin: 20px 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.signedOutCard p {
+  margin: 0 0 22px;
+  color: #6b6762;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.secondaryLink {
+  margin-top: 18px;
+  color: #8e1b2d;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .accountLayout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+
+  .profileCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #eee4d8;
+    border-bottom: none;
+  }
+
+  .accountNav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .accountPage {
+    padding: 32px 15px 50px;
+  }
+
+  .pageHeading {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pageHeading h1 {
+    font-size: 36px;
+  }
+
+  .signOutButton {
+    padding: 9px 11px;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .profileCard {
+    padding: 20px 12px;
+    border-right: none;
+    border-bottom: 1px solid #eee4d8;
+  }
+
+  .accountNav {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .mainPanel {
+    padding: 17px;
+  }
+
+  .panelHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .orderCard {
+    padding: 13px;
+  }
+
+  .orderProduct img {
+    width: 62px;
+    height: 70px;
+  }
+
+  .orderBottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

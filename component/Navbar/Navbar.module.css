@@ -1,0 +1,152 @@
+.header{
+    width: 100%;
+}
+.announcementbar{
+    height: 32px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--maroon);
+    color: var(--cream);
+    text-align: center;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 400;
+
+}
+.navbar{
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 6.5%;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+.logo{
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-right: 32px;
+  white-space: nowrap;
+}
+.logoMain{
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--maroon);
+  letter-spacing: -0.5px;
+}
+.logoSub{
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 600;
+}
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex: 1;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: var(--maroon);
+}
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.searchBox{
+    width: 256px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+.searchIcon{
+   flex-shrink: 0;
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.searchBox input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background : transparent;
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+
+}
+.searchBox input::placeholder {
+  color: var(--muted);
+}
+.signIn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  border: none;
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.signIn:hover {
+  color: var(--maroon);
+}
+
+.bag {
+  border: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  cursor: pointer;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+
+.bag:hover {
+  color: var(--maroon);
+}
+.logoLink {
+    text-decoration: none;
+    color: inherit;
+}
+.signIn {
+    text-decoration: none;
+    color: inherit;
+}

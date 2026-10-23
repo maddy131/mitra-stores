@@ -1,0 +1,218 @@
+.hero {
+  position: relative;
+  min-height: 670px;
+
+  background-image: url("/hero.png");
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+
+  padding-top: 140px;
+  margin-left: 7%;
+}
+
+.tag {
+  margin-bottom: 25px;
+
+  color: #d6a93a;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.title {
+  margin: 0 0 30px;
+
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 5vw, 78px);
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.title em {
+  color: #d6a93a;
+}
+
+.description {
+  max-width: 570px;
+
+  margin-bottom: 35px;
+
+  color: #eeeeee;
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 15px 25px;
+
+  border-radius: 7px;
+
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.primaryButton {
+  border: none;
+
+  background: #c99a35;
+  color: white;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  background: transparent;
+  color: white;
+}
+
+.features {
+  position: absolute;
+
+  right: 7%;
+  bottom: 45px;
+
+  z-index: 2;
+
+  display: flex;
+  gap: 12px;
+}
+
+.featureCard {
+  width: 175px;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+
+  background: rgba(40, 35, 35, 0.7);
+
+  backdrop-filter: blur(8px);
+}
+
+.featureIcon {
+  width: 22px;
+  height: 22px;
+
+  flex-shrink: 0;
+}
+
+.featureCard h3 {
+  margin: 0 0 5px;
+
+  font-size: 15px;
+}
+
+.featureCard p {
+  margin: 0;
+
+  color: #cccccc;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    min-height: 750px;
+  }
+
+  .content {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .features {
+    left: 5%;
+    right: 5%;
+
+    bottom: 30px;
+  }
+
+  .featureCard {
+    flex: 1;
+    width: auto;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 850px;
+
+    background-position: center;
+  }
+
+  .content {
+    padding-top: 80px;
+
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .features {
+    position: absolute;
+
+    left: 6%;
+    right: 6%;
+    bottom: 25px;
+
+    flex-direction: column;
+  }
+
+  .featureCard {
+    width: auto;
+  }
+}
