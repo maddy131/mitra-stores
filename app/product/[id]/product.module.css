@@ -1,0 +1,292 @@
+
+.productPage {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 5% 70px;
+  color: #292725;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+  color: #6b6762;
+  font-size: 13px;
+}
+
+.breadcrumb a {
+  color: #6b6762;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #b8862f;
+}
+
+.productLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.gallery {
+  min-width: 0;
+}
+
+.mainImage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #faf8f3;
+}
+
+.mainImage img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+}
+
+.discount,
+.soldOut {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 12px;
+  background: #32070d;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.soldOut {
+  top: auto;
+  bottom: 16px;
+  background: #292725;
+}
+
+.details {
+  padding-top: 12px;
+}
+
+.category {
+  margin: 0 0 12px;
+  color: #b8862f;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.details h1 {
+  margin: 0;
+  color: #32070d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.rating {
+  margin: 18px 0;
+  color: #b8862f;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.rating span {
+  color: #6b6762;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.priceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.price {
+  color: #32070d;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.oldPrice {
+  color: #888078;
+  font-size: 17px;
+  text-decoration: line-through;
+}
+
+.taxNote {
+  margin: 8px 0 24px;
+  color: #6b6762;
+  font-size: 12px;
+}
+
+.divider {
+  height: 1px;
+  margin: 24px 0;
+  background: #ddd4c7;
+}
+
+.details h3 {
+  margin: 0 0 12px;
+  color: #32070d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.description {
+  color: #6b6762;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.stock {
+  margin: 20px 0;
+  color: #287d5a;
+  font-size: 13px;
+}
+
+.quantityRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0 18px;
+  font-size: 14px;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd4c7;
+}
+
+.quantityControl button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: #faf8f3;
+  color: #32070d;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.quantityControl button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.quantityControl span {
+  min-width: 36px;
+  text-align: center;
+}
+
+.addButton,
+.buyButton {
+  width: 100%;
+  min-height: 50px;
+  padding: 14px 20px;
+  border: 1px solid #32070d;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.addButton {
+  background: #32070d;
+  color: #fff;
+}
+
+.addButton:hover {
+  background: #220408;
+}
+
+.buyButton {
+  margin-top: 12px;
+  background: #faf8f3;
+  color: #32070d;
+}
+
+.buyButton:hover {
+  background: #eee6da;
+}
+
+.benefits {
+  margin-top: 28px;
+  padding: 18px;
+  background: #faf8f3;
+  color: #6b6762;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.benefits p {
+  margin: 8px 0;
+}
+
+.backToShop {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid #ddd4c7;
+}
+
+.backToShop a,
+.notFound a {
+  color: #32070d;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.backToShop a:hover,
+.notFound a:hover {
+  color: #b8862f;
+}
+
+.notFound {
+  min-height: 350px;
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.notFound h1 {
+  color: #32070d;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.notFound p {
+  color: #6b6762;
+}
+
+@media (max-width: 760px) {
+  .productPage {
+    padding: 20px 5% 48px;
+  }
+
+  .productLayout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mainImage img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .details {
+    padding-top: 0;
+  }
+
+  .details h1 {
+    font-size: 30px;
+  }
+
+  .backToShop {
+    margin-top: 40px;
+  }
+}

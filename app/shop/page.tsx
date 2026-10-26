@@ -8,16 +8,7 @@ import Navbar from "@/component/Navbar/Navbar";
 import Footer from "@/component/Footer/footer";
 import styles from "./shop.module.css";
 import { useCart } from "@/context/CartContext";
-
-type Product = {
-  id: number;
-  name: string;
-  category: string;
-  price: number;
-  oldPrice?: number;
-  image: string;
-  inStock: boolean;
-};
+import { products, type Product } from "@/lib/products";
 
 const categories = [
   "All Products",
@@ -39,7 +30,6 @@ const categories = [
   "Wool & Yarn",
 ];
 
-// All categories included when customers select Jewellery.
 const jewelleryCategories = [
   "Temple Jewellery",
   "Dance Jewellery",
@@ -49,145 +39,12 @@ const jewelleryCategories = [
   "Churis",
 ];
 
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Traditional Temple Jewellery Set",
-    category: "Temple Jewellery",
-    price: 1299,
-    oldPrice: 1599,
-    image: "/images/categories/temple-jewellery.jpg",
-    inStock: true,
-  },
-  {
-    id: 2,
-    name: "Bengali Biye Totto Collection",
-    category: "Biye Totto",
-    price: 899,
-    image: "/images/categories/biye-totto.jpg",
-    inStock: true,
-  },
-  {
-    id: 3,
-    name: "Classic Dance Jewellery",
-    category: "Dance Jewellery",
-    price: 749,
-    oldPrice: 999,
-    image: "/images/categories/dance-jewellery.jpg",
-    inStock: true,
-  },
-  {
-    id: 4,
-    name: "Oxidized Jewellery Set",
-    category: "Oxidized Jewellery",
-    price: 599,
-    image: "/images/categories/oxidized-jewellery.jpg",
-    inStock: true,
-  },
-  {
-    id: 5,
-    name: "Traditional Gold-Tone Bangles",
-    category: "Bangles",
-    price: 399,
-    oldPrice: 499,
-    image: "/images/categories/bangles.jpg",
-    inStock: true,
-  },
-  {
-    id: 6,
-    name: "Everyday Fashion Bracelets",
-    category: "Bracelets",
-    price: 249,
-    image: "/images/categories/bracelets.jpg",
-    inStock: true,
-  },
-  {
-    id: 7,
-    name: "Colourful Traditional Churis",
-    category: "Churis",
-    price: 199,
-    image: "/images/categories/churis.jpg",
-    inStock: false,
-  },
-  {
-    id: 8,
-    name: "Women's Fashion Accessories",
-    category: "Accessories",
-    price: 299,
-    image: "/images/categories/accessories.jpg",
-    inStock: true,
-  },
-  {
-    id: 9,
-    name: "Decorative Hair Accessories",
-    category: "Hair Accessories",
-    price: 179,
-    image: "/images/categories/hair-accessories.jpg",
-    inStock: true,
-  },
-  {
-    id: 10,
-    name: "Elegant Hair Clutcher Set",
-    category: "Clutchers",
-    price: 149,
-    image: "/images/categories/clutchers.jpg",
-    inStock: true,
-  },
-  {
-    id: 11,
-    name: "Daily Skincare Essentials",
-    category: "Skincare",
-    price: 499,
-    image: "/images/categories/skincare.jpg",
-    inStock: true,
-  },
-  {
-    id: 12,
-    name: "Natural Face Pack Collection",
-    category: "Face Packs",
-    price: 249,
-    image: "/images/categories/face-packs.jpg",
-    inStock: true,
-  },
-  {
-    id: 13,
-    name: "Professional Makeup Brushes",
-    category: "Makeup Brushes",
-    price: 349,
-    image: "/images/categories/makeup-brushes.jpg",
-    inStock: true,
-  },
-  {
-    id: 14,
-    name: "Knitting Tools Starter Kit",
-    category: "Knitting Tools",
-    price: 299,
-    image: "/images/categories/knitting-tools.jpg",
-    inStock: true,
-  },
-  {
-    id: 15,
-    name: "Soft Wool Yarn Skein",
-    category: "Wool & Yarn",
-    price: 199,
-    oldPrice: 249,
-    image: "/images/categories/wool-yarn.jpg",
-    inStock: true,
-  },
-  {
-    id: 16,
-    name: "Premium Craft Wool Bundle",
-    category: "Wool & Yarn",
-    price: 399,
-    image: "/images/categories/wool-yarn.jpg",
-    inStock: false,
-  },
-];
-
 export default function ShopPage() {
   const { addItem } = useCart();
   const searchParams = useSearchParams();
+
   const requestedCategory = searchParams.get("category");
+  const requestedSearch = searchParams.get("search") ?? "";
 
   const [activeCategory, setActiveCategory] =
     useState("All Products");
@@ -195,17 +52,17 @@ export default function ShopPage() {
   const [sort, setSort] = useState("featured");
   const [inStockOnly, setInStockOnly] = useState(false);
 
-  // Select the category passed through the URL.
+  // Apply the category received through the URL.
   useEffect(() => {
-    if (!requestedCategory) {
-      setActiveCategory("All Products");
-      return;
-    }
-
     const categoryAliases: Record<string, string> = {
       "Bengali Biye Totto": "Biye Totto",
       "Wool & Craft": "Wool & Yarn",
     };
+
+    if (!requestedCategory) {
+      setActiveCategory("All Products");
+      return;
+    }
 
     const selectedCategory =
       categoryAliases[requestedCategory] ?? requestedCategory;
@@ -217,9 +74,18 @@ export default function ShopPage() {
     }
   }, [requestedCategory]);
 
-  // Filter, search and sort products.
+  // Apply navbar search and reset conflicting filters.
+  useEffect(() => {
+    setSearch(requestedSearch);
+    setActiveCategory("All Products");
+    setInStockOnly(false);
+  }, [requestedSearch]);
+
+  // Filter and sort products.
   const filteredProducts = useMemo(() => {
-    let result = products.filter((product) => {
+    const normalizedSearch = search.trim().toLowerCase();
+
+    let result = products.filter((product: Product) => {
       const matchesCategory =
         activeCategory === "All Products" ||
         (activeCategory === "Jewellery" &&
@@ -227,10 +93,12 @@ export default function ShopPage() {
         product.category === activeCategory;
 
       const matchesSearch =
-        product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.category.toLowerCase().includes(search.toLowerCase());
+        normalizedSearch === "" ||
+        product.name.toLowerCase().includes(normalizedSearch) ||
+        product.category.toLowerCase().includes(normalizedSearch);
 
-      const matchesStock = !inStockOnly || product.inStock;
+      const matchesStock =
+        !inStockOnly || product.inStock;
 
       return matchesCategory && matchesSearch && matchesStock;
     });
